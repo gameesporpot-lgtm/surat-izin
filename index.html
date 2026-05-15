@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistem Izin Online</title>
+    <title>Sistem Izin Online - GHIYAST</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
@@ -16,63 +16,72 @@
                 <h2><i class="fas fa-lock"></i> Admin Panel</h2>
                 <form id="adminLoginForm">
                     <div class="form-group">
-                        <label for="adminPassword"><i class="fas fa-key"></i> Password Admin</label>
+                        <label for="adminPassword"><i class="fas fa-key"></i> Password</label>
                         <input type="password" id="adminPassword" required>
                     </div>
-                    <button type="submit" class="submit-btn"><i class="fas fa-sign-in-alt"></i> Masuk</button>
+                    <button type="submit" class="submit-btn"><i class="fas fa-sign-in-alt"></i> MASUK</button>
                 </form>
             </div>
         </div>
 
         <header>
-            <h1><i class="fas fa-calendar-check"></i> Sistem Izin Online</h1>
-            <p>Ajukan izin sakit atau acara dengan mudah</p>
-            <div class="header-actions">
-                <button id="adminBtn" class="admin-btn">
-                    <i class="fas fa-cog"></i> Admin
-                </button>
+            <div class="logo">
+                <i class="fas fa-calendar-check"></i>
+                <h1>SISTEM IZIN</h1>
             </div>
+            <div class="by-text">BY: GHIYAST</div>
+            <button id="adminBtn" class="admin-btn">
+                <i class="fas fa-cog"></i> ADMIN
+            </button>
         </header>
 
-        <!-- Form Pengajuan Izin -->
+        <!-- Form User -->
         <div id="userForm">
             <form id="izinForm" class="izin-form">
-                <div class="form-group">
-                    <label for="nama"><i class="fas fa-user"></i> Nama Lengkap</label>
-                    <input type="text" id="nama" name="nama" required>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> NAMA</label>
+                        <input type="text" id="nama" name="nama" required>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="nip"><i class="fas fa-id-card"></i> NIP/NIS</label>
-                    <input type="text" id="nip" name="nip" required>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label><i class="fas fa-list"></i> ALASAN IZIN</label>
+                        <select id="jenisIzin" name="jenisIzin" required>
+                            <option value="">Pilih alasan</option>
+                            <option value="sakit">SAKIT</option>
+                            <option value="acara">ACARA</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="form-group">
-                    <label for="jenisIzin"><i class="fas fa-list"></i> Jenis Izin</label>
-                    <select id="jenisIzin" name="jenisIzin" required>
-                        <option value="">Pilih jenis izin</option>
-                        <option value="sakit">Sakit</option>
-                        <option value="acara">Acara/Kejadian Khusus</option>
-                    </select>
+                <div class="form-row">
+                    <div class="form-group full-width">
+                        <label><i class="fas fa-info-circle"></i> KETERANGAN</label>
+                        <textarea id="alasan" name="alasan" rows="3" placeholder="Jelaskan detail..." required></textarea>
+                    </div>
                 </div>
 
-                <div class="form-group" id="alasanGroup">
-                    <label for="alasan"><i class="fas fa-info-circle"></i> Alasan/Keterangan</label>
-                    <textarea id="alasan" name="alasan" rows="4" placeholder="Jelaskan detail sakit atau acara..." required></textarea>
-                </div>
-
-                <div class="form-group">
-                    <label for="tanggal"><i class="fas fa-calendar"></i> Tanggal Izin</label>
-                    <input type="date" id="tanggal" name="tanggal" required>
-                </div>
-
-                <div class="form-group">
-                    <label for="kelas"><i class="fas fa-graduation-cap"></i> Kelas/Jabatan</label>
-                    <input type="text" id="kelas" name="kelas" placeholder="Contoh: XII IPA 1 / Staff IT">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label><i class="fas fa-calendar"></i> TANGGAL</label>
+                        <input type="date" id="tanggal" name="tanggal" required>
+                    </div>
+                    <div class="form-group">
+                        <label><i class="fas fa-briefcase"></i> JABATAN</label>
+                        <select id="jabatan" name="jabatan" required>
+                            <option value="">Pilih jabatan</option>
+                            <option value="petinggi">PETINGGI</option>
+                            <option value="wakil">WAKIL</option>
+                            <option value="management">MANAGEMENT</option>
+                            <option value="staff">STAFF</option>
+                        </select>
+                    </div>
                 </div>
 
                 <button type="submit" class="submit-btn">
-                    <i class="fas fa-paper-plane"></i> Kirim Izin
+                    <i class="fas fa-paper-plane"></i> KIRIM IZIN
                 </button>
             </form>
         </div>
@@ -80,43 +89,37 @@
         <!-- Admin Panel -->
         <div id="adminPanel" class="admin-panel" style="display: none;">
             <div class="admin-header">
-                <h2><i class="fas fa-user-shield"></i> Admin Panel</h2>
-                <button id="logoutBtn" class="logout-btn">
-                    <i class="fas fa-sign-out-alt"></i> Keluar
-                </button>
+                <h2><i class="fas fa-user-shield"></i> ADMIN PANEL</h2>
+                <button id="logoutBtn" class="logout-btn">KELUAR</button>
             </div>
             
             <div class="stats">
                 <div class="stat-card pending">
                     <i class="fas fa-clock"></i>
-                    <div>
-                        <h3 id="pendingCount">0</h3>
-                        <span>Menunggu</span>
-                    </div>
+                    <div><h3 id="pendingCount">0</h3><span>Menunggu</span></div>
                 </div>
                 <div class="stat-card approved">
                     <i class="fas fa-check-circle"></i>
-                    <div>
-                        <h3 id="approvedCount">0</h3>
-                        <span>Disetujui</span>
-                    </div>
+                    <div><h3 id="approvedCount">0</h3><span>Disetujui</span></div>
                 </div>
                 <div class="stat-card rejected">
                     <i class="fas fa-times-circle"></i>
-                    <div>
-                        <h3 id="rejectedCount">0</h3>
-                        <span>Ditolak</span>
-                    </div>
+                    <div><h3 id="rejectedCount">0</h3><span>Ditolak</span></div>
                 </div>
             </div>
 
             <div class="izin-list">
-                <h3><i class="fas fa-list"></i> Daftar Pengajuan Izin</h3>
-                <div id="izinList" class="list-container">
-                    <!-- Izin akan dimuat di sini -->
-                </div>
+                <h3><i class="fas fa-list"></i> DAFTAR IZIN</h3>
+                <div id="izinList" class="list-container"></div>
             </div>
         </div>
+
+        <div id="status" class="status"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
 
         <div id="status" class="status"></div>
     </div>
